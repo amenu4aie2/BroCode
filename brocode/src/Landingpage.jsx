@@ -1,6 +1,16 @@
-import React from 'react';
+// import { useState } from 'react';
+import { set } from 'firebase/database';
+import React,{useState} from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 
 function Landingpage() {
+  const [Text, setText] = useState('');
+  const redirect = (id) => {
+    window.location.href = `/room/${Text}`;
+    
+  }
   return (
     <div>
       <div style={{ display: 'flex', padding: '25px 70px', justifyContent: 'space-between', alignItems: 'center' }} className="header">
@@ -20,7 +30,37 @@ function Landingpage() {
           Sharpen your skills and battle your friends in the ultimate coding showdown! Create a game room, choose your language & difficulty, then conquer coding challenges against the clock. May the most efficient code win!
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '65px' }} className="room">
-          <div style={{ color: 'white', backgroundColor: '#ee7212', borderRadius: '10px', padding: '15px 40px', fontSize: '20px', fontWeight: 'bolder', fontFamily: 'monospace' }} className="createroom">Join a Room</div>
+
+
+<Popup trigger=
+                {          <button style={{ color: 'white', backgroundColor: '#ee7212', borderRadius: '10px', padding: '15px 40px', fontSize: '20px', fontWeight: 'bolder', fontFamily: 'monospace' }} className="createroom">Join a Room</button>
+        
+            }
+                modal nested>
+                {
+                    closer => (
+                        <div className='modal'>
+                            <div className='content'>
+<div>ENTER THE ROOM CODE HERE</div>
+                            </div>
+                            <div>
+                            <input value={Text} onChange={(event) => setText(event.target.value)}></input>
+                                <button onClick=
+                                    {() => {closer()
+                                    redirect()
+                                    }
+                                   
+                                    
+                                    }>
+                                        ENTER
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
+            </Popup>
+{/* --------------------------------------------------------- */}
+
           <div style={{ color: 'white', backgroundColor: '#ee7212', borderRadius: '10px', padding: '15px 40px', fontSize: '20px', fontWeight: 'bolder', fontFamily: 'monospace' }} className="createroom">Create a Game Room</div>
         </div>
         <div className="editor">
