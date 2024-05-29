@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import './darkLandingPage.css';
 
 function darkLandingPage() {
+  const [Text, setText] = useState('');
+  const redirect = () => {
+    window.location.href = `/room/${Text}`;
+  };
   return (
     <div>
             <style>
@@ -33,6 +39,32 @@ function darkLandingPage() {
           Sharpen your skills and battle your friends in the ultimate coding showdown! Create a game room, choose your language & difficulty, then conquer coding challenges against the clock. May the most efficient code win!
         </div>
         <div className="room">
+        <Popup
+            trigger={
+              <button className="lcreateroom">Join a Room</button>
+            }
+            modal
+            nested
+          >
+            {closer => (
+              <div className="lmodal">
+                <div className="lcontent">
+                  <div>ENTER THE ROOM CODE HERE</div>
+                </div>
+                <div>
+                  <input value={Text} onChange={(event) => setText(event.target.value)}></input>
+                  <button
+                    onClick={() => {
+                      closer();
+                      redirect();
+                    }}
+                  >
+                    ENTER
+                  </button>
+                </div>
+              </div>
+            )}
+          </Popup>
           <div className="createroom">Join a Room</div>
           <div className="createroom">Create a Game Room</div>
         </div>
