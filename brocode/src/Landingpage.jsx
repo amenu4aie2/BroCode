@@ -1,69 +1,62 @@
-// import { useState } from 'react';
-import { set } from 'firebase/database';
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
+import './Landingpage.css';
 
 function Landingpage() {
   const [Text, setText] = useState('');
-  const redirect = (id) => {
+  const redirect = () => {
     window.location.href = `/room/${Text}`;
-    
-  }
+  };
+
   return (
     <div>
-      <div style={{ display: 'flex', padding: '25px 70px', justifyContent: 'space-between', alignItems: 'center' }} className="header">
+    <div style={{ display: 'flex', padding: '25px 70px', justifyContent: 'space-between', alignItems: 'center' }} className="header">
         <div className="logo">LOGO</div>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: '70px', alignItems: 'center', fontSize: '20px', fontFamily: 'monospace', paddingRight: '100px' }} className="lh">
+        <div  style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: '70px', alignItems: 'center', fontSize: '20px', fontFamily: 'monospace', paddingRight: '100px' }}  className="lh">
           <div>How it works</div>
           <div>About</div>
           <a href="/dark">:dark </a>
-          <div style={{ color: 'white', backgroundColor: '#ee7212', borderRadius: '7px', padding: '5px 10px' }} className="sp">Sign Up</div>
+          <div className="lsp">Sign Up</div>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '40px', paddingTop: '150px' }} className="container">
-        <div style={{ color: 'black', fontSize: '45px', fontFamily: 'monospace', fontWeight: 'bolder' }} className="Tagline">
+      <div className="lcontainer">
+        <div className="lTagline">
           Challenge Accepted? Code Your Way to Victory!
         </div>
-        <div style={{ color: 'black', fontSize: '20px', fontFamily: 'monospace', paddingLeft: '400px', paddingRight: '400px', textAlign: 'center' }} className="description">
+        <div className="ldescription">
           Sharpen your skills and battle your friends in the ultimate coding showdown! Create a game room, choose your language & difficulty, then conquer coding challenges against the clock. May the most efficient code win!
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '65px' }} className="room">
-
-
-<Popup trigger=
-                {          <button style={{ color: 'white', backgroundColor: '#ee7212', borderRadius: '10px', padding: '15px 40px', fontSize: '20px', fontWeight: 'bolder', fontFamily: 'monospace' }} className="createroom">Join a Room</button>
-        
+        <div className="lroom">
+          <Popup
+            trigger={
+              <button className="lcreateroom">Join a Room</button>
             }
-                modal nested>
-                {
-                    closer => (
-                        <div className='modal'>
-                            <div className='content'>
-<div>ENTER THE ROOM CODE HERE</div>
-                            </div>
-                            <div>
-                            <input value={Text} onChange={(event) => setText(event.target.value)}></input>
-                                <button onClick=
-                                    {() => {closer()
-                                    redirect()
-                                    }
-                                   
-                                    
-                                    }>
-                                        ENTER
-                                </button>
-                            </div>
-                        </div>
-                    )
-                }
-            </Popup>
-{/* --------------------------------------------------------- */}
-
-          <div style={{ color: 'white', backgroundColor: '#ee7212', borderRadius: '10px', padding: '15px 40px', fontSize: '20px', fontWeight: 'bolder', fontFamily: 'monospace' }} className="createroom">Create a Game Room</div>
+            modal
+            nested
+          >
+            {closer => (
+              <div className="lmodal">
+                <div className="lcontent">
+                  <div>ENTER THE ROOM CODE HERE</div>
+                </div>
+                <div>
+                  <input value={Text} onChange={(event) => setText(event.target.value)}></input>
+                  <button
+                    onClick={() => {
+                      closer();
+                      redirect();
+                    }}
+                  >
+                    ENTER
+                  </button>
+                </div>
+              </div>
+            )}
+          </Popup>
+          <div className="lcreateroom">Create a Game Room</div>
         </div>
-        <div className="editor">
+        <div className="leditor">
           {/* <img src="editor.jpeg" alt="editor"/> */}
         </div>
       </div>
