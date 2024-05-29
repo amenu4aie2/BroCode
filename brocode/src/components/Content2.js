@@ -4,7 +4,7 @@ import { Editor } from "@monaco-editor/react";
 import LanguageSelector from "./LanguageSelector";
 import { CODE_SNIPPETS } from "../constants";
 import AppContext from "./AppContext";
-import { set } from "firebase/database";
+// import { set } from "firebase/database";
 
 const Content2 = () => {
   const { editorState, setEditorState, editorRef } = useContext(AppContext);
