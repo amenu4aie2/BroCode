@@ -3,6 +3,7 @@ import './Darklighttoggle.css';
 
 function Darklighttoggle({ isDarkMode, toggleDarkMode }) {
   // console.log(isDarkMode);
+  // 
   return (
     <label className={`toggle-label ${isDarkMode ? 'dark' : 'light'}`}>
       <input

@@ -1,7 +1,9 @@
-import React from 'react';
-import './darkLandingPage.css';
+import React, { useState } from 'react';
+import './DarkLandingPage.css';
 
-function darkLandingPage() {
+function DarkLandingPage() {
+  const [First, setFirst] = useState('');
+
   return (
     <div>
             <style>
@@ -41,4 +43,4 @@ function darkLandingPage() {
   );
 }
 
-export default darkLandingPage;
+export default DarkLandingPage;
