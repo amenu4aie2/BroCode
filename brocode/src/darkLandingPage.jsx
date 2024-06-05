@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './DarkLandingPage.css';
-
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 function DarkLandingPage() {
-  const [First, setFirst] = useState('');
-
+  const [Text, setText] = useState('');
+  const redirect = () => {
+    window.location.href = `/room/${Text}`;
+  };
   return (
     <div>
             <style>

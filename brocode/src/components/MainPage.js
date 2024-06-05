@@ -18,9 +18,7 @@ const MainPage = () => {
           <div className="content1 centered">
             <Content1 />
           </div>
-          <div className="content2 centered">
-            <Content2 />
-          </div>
+          <div className="content2 centered"><Content2 /></div>
           <div className="content3 centered">
             <Content3 />
           </div>
@@ -46,4 +44,3 @@ const MainPage = () => {
 };
 
 export default MainPage;
-  

@@ -53,10 +53,9 @@ const Output = ({ editorRef, language,stdin }) => {
         borderRadius={4}
         borderColor={isError ? "red.500" : "#333"}
       >
-        {console.log(output.join(''))}
+        {/* {console.log(output.join(''))} */}
 {output
-          ? output.join('') === '11' ? "pass" : 'fail\nExpected: 1\n1\nReceived: ' + output.join('\n') + '\n'
-          : 'Click on "Run Code" to see the output here.'}
+          ? output.join('') === '11' ? "pass" : 'fail\nExpected: 1\n1\nReceived: ' + output.join('\n') + '\n': 'Click on "Run Code" to see the output here.'}
       </div>
     </div>
   );
